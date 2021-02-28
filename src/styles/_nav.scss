@@ -1,0 +1,24 @@
+nav {
+  min-height: 10vh;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
+  button {
+    color: gray;
+    background: transparent;
+    border: 2px solid gray;
+    cursor: pointer;
+    padding: 0.5rem;
+    transition: all 0.3s ease;
+    z-index: 10;
+    &:hover {
+      background: gray;
+      color: white;
+    }
+
+    &:focus {
+      outline: none;
+    }
+  }
+}
