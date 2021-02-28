@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/robertcurry0216.github.io/react-player/static/css/main.5db38c52.chunk.css",
+    "main.js": "/robertcurry0216.github.io/react-player/static/js/main.39ed5f2b.chunk.js",
+    "main.js.map": "/robertcurry0216.github.io/react-player/static/js/main.39ed5f2b.chunk.js.map",
+    "runtime-main.js": "/robertcurry0216.github.io/react-player/static/js/runtime-main.161fe6ef.js",
+    "runtime-main.js.map": "/robertcurry0216.github.io/react-player/static/js/runtime-main.161fe6ef.js.map",
+    "static/js/2.a3443b79.chunk.js": "/robertcurry0216.github.io/react-player/static/js/2.a3443b79.chunk.js",
+    "static/js/2.a3443b79.chunk.js.map": "/robertcurry0216.github.io/react-player/static/js/2.a3443b79.chunk.js.map",
+    "static/js/3.08c1293b.chunk.js": "/robertcurry0216.github.io/react-player/static/js/3.08c1293b.chunk.js",
+    "static/js/3.08c1293b.chunk.js.map": "/robertcurry0216.github.io/react-player/static/js/3.08c1293b.chunk.js.map",
+    "index.html": "/robertcurry0216.github.io/react-player/index.html",
+    "static/css/main.5db38c52.chunk.css.map": "/robertcurry0216.github.io/react-player/static/css/main.5db38c52.chunk.css.map",
+    "static/js/2.a3443b79.chunk.js.LICENSE.txt": "/robertcurry0216.github.io/react-player/static/js/2.a3443b79.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.161fe6ef.js",
+    "static/js/2.a3443b79.chunk.js",
+    "static/css/main.5db38c52.chunk.css",
+    "static/js/main.39ed5f2b.chunk.js"
+  ]
+}
