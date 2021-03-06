@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { skipTrack, selectCurrentSong } from "./musicLibrarySlice";
-import { setCurrentTime } from "./songInfoSlice";
+import { setCurrentTime, startPlaying, stopPlaying } from "./songInfoSlice";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -14,7 +14,7 @@ import {
 
 import { playAudio } from "../util";
 
-function Player({ isPlaying, setIsPlaying, audioRef }) {
+function Player({ audioRef }) {
   //redux
   const currentSong = useSelector(selectCurrentSong);
   const songInfo = useSelector((state) => state.songInfo);
@@ -22,17 +22,17 @@ function Player({ isPlaying, setIsPlaying, audioRef }) {
 
   //effects
   useEffect(() => {
-    playAudio(isPlaying, audioRef);
+    playAudio(songInfo.isPlaying, audioRef);
   }, [currentSong]);
 
   //event handlers
   function playSongHandler() {
-    if (isPlaying) {
+    if (songInfo.isPlaying) {
       audioRef.current.pause();
-      setIsPlaying(!isPlaying);
+      dispatch(stopPlaying());
     } else {
       audioRef.current.play();
-      setIsPlaying(!isPlaying);
+      dispatch(startPlaying());
     }
   }
 
@@ -84,7 +84,7 @@ function Player({ isPlaying, setIsPlaying, audioRef }) {
           onClick={playSongHandler}
           className="play"
           size="2x"
-          icon={isPlaying ? faPause : faPlay}
+          icon={songInfo.isPlaying ? faPause : faPlay}
         />
         <FontAwesomeIcon
           onClick={() => dispatch(skipTrack(1))}

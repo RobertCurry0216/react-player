@@ -1,23 +1,23 @@
-import React from 'react';
-import LibrarySong from './LibrarySong';
+import React from "react";
+import { useSelector } from "react-redux";
+import { selectSongs } from "./musicLibrarySlice";
 
-function Library({songs, setCurrentSong, isPlaying, audioRef, libraryStatus, setLibraryStatus}){
+import LibrarySong from "./LibrarySong";
+
+function Library({ audioRef }) {
+  const songs = useSelector(selectSongs);
+  const libraryStatus = useSelector((state) => state.musicLibrary.show);
+
   return (
-    <div className={`library ${libraryStatus ? 'active-library' : ''}`}>
+    <div className={`library ${libraryStatus ? "active-library" : ""}`}>
       <h2>Library</h2>
       <div className="library-songs">
-        {songs.map(s => 
-          <LibrarySong 
-            song={s}
-            songs={songs}
-            isPlaying={isPlaying}
-            setCurrentSong={setCurrentSong}
-            key={s.id}
-            audioRef={audioRef}/>
-        )}
+        {songs.map((song, idx) => (
+          <LibrarySong songIdx={idx} key={song.id} audioRef={audioRef} />
+        ))}
       </div>
     </div>
-  )
+  );
 }
 
 export default Library;

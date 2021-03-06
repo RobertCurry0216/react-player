@@ -7,6 +7,7 @@ export const musicLibrarySlice = createSlice({
   initialState: {
     songs: chillHop(),
     currentTrack: 0,
+    show: false,
   },
   reducers: {
     skipTrack: (state, action) => {
@@ -18,11 +19,14 @@ export const musicLibrarySlice = createSlice({
     setTrack: (state, action) => {
       state.currentTrack = action.payload;
     },
+    toggleShow: (state) => {
+      state.show = !state.show;
+    },
   },
 });
 
 // actions
-export const { skipTrack, setTrack } = musicLibrarySlice.actions;
+export const { skipTrack, setTrack, toggleShow } = musicLibrarySlice.actions;
 
 // selectors
 export const selectCurrentSong = (state) =>

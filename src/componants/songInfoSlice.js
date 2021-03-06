@@ -6,6 +6,7 @@ export const songInfoSlice = createSlice({
     currentTime: 0,
     duration: 0,
     animationPercentage: 0,
+    isPlaying: false,
   },
   reducers: {
     setCurrentTime: (state, action) => {
@@ -17,6 +18,12 @@ export const songInfoSlice = createSlice({
     setAnimationPercentage: (state, action) => {
       state.animationPercentage = action.payload;
     },
+    startPlaying: (state) => {
+      state.isPlaying = true;
+    },
+    stopPlaying: (state) => {
+      state.isPlaying = false;
+    },
   },
 });
 
@@ -25,6 +32,8 @@ export const {
   setCurrentTime,
   setDuration,
   setAnimationPercentage,
+  startPlaying,
+  stopPlaying,
 } = songInfoSlice.actions;
 
 // reducer

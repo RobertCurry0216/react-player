@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useRef } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { skipTrack, selectCurrentSong } from "./componants/musicLibrarySlice";
 import {
@@ -17,11 +17,8 @@ import Nav from "./componants/Nav";
 function App() {
   //redux
   const currentSong = useSelector(selectCurrentSong);
+  const libraryStatus = useSelector((state) => state.musicLibrary.show);
   const dispatch = useDispatch();
-
-  //states
-  const [isPlaying, setIsPlaying] = useState(false);
-  const [libraryStatus, setLibraryStatus] = useState(false);
 
   //Ref
   const audioRef = useRef(null);
@@ -40,21 +37,10 @@ function App() {
   //componant
   return (
     <div className={`app ${libraryStatus ? "library-active" : ""}`}>
-      <Nav libraryStatus={libraryStatus} setLibraryStatus={setLibraryStatus} />
+      <Nav />
       <Song />
-      <Player
-        isPlaying={isPlaying}
-        setIsPlaying={setIsPlaying}
-        audioRef={audioRef}
-      />
-      {/* <Library
-        songs={songs}
-        setCurrentSong={setCurrentSong}
-        isPlaying={isPlaying}
-        audioRef={audioRef}
-        libraryStatus={libraryStatus}
-        setLibraryStatus={setLibraryStatus}
-      /> */}
+      <Player audioRef={audioRef} />
+      <Library audioRef={audioRef} />
 
       <audio
         ref={audioRef}
