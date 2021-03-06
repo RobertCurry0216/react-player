@@ -1,4 +1,3 @@
-  
 import { v4 as uuidv4 } from "uuid";
 function chillHop() {
   return [
@@ -10,7 +9,6 @@ function chillHop() {
       audio: "https://mp3.chillhop.com/serve.php/?mp3=10075",
       color: ["#205950", "#2ab3bf"],
       id: uuidv4(),
-      active: true,
     },
     {
       name: "Daylight",
@@ -20,7 +18,6 @@ function chillHop() {
       audio: "https://mp3.chillhop.com/serve.php/?mp3=9272",
       color: ["#EF8EA9", "#ab417f"],
       id: uuidv4(),
-      active: false,
     },
     {
       name: "Keep Going",
@@ -30,7 +27,6 @@ function chillHop() {
       audio: "https://mp3.chillhop.com/serve.php/?mp3=9222",
       color: ["#CD607D", "#c94043"],
       id: uuidv4(),
-      active: false,
     },
     {
       name: "Nightfall",
@@ -40,7 +36,6 @@ function chillHop() {
       audio: "https://mp3.chillhop.com/serve.php/?mp3=9148",
       color: ["#EF8EA9", "#ab417f"],
       id: uuidv4(),
-      active: false,
     },
     {
       name: "Reflection",
@@ -50,7 +45,6 @@ function chillHop() {
       audio: "https://mp3.chillhop.com/serve.php/?mp3=9228",
       color: ["#CD607D", "#c94043"],
       id: uuidv4(),
-      active: false,
     },
     {
       name: "Under the City Stars",
@@ -60,19 +54,16 @@ function chillHop() {
       audio: "https://mp3.chillhop.com/serve.php/?mp3=10074",
       color: ["#205950", "#2ab3bf"],
       id: uuidv4(),
-      active: false,
     },
-    //ADD MORE HERE
     {
-        name: "Toofpick",
-        cover:
-          "https://chillhop.com/wp-content/uploads/2020/12/33a2a875828118a3ff260638a88362936104879a-1024x1024.jpg",
-        artist: "Directions",
-        audio: "https://mp3.chillhop.com/serve.php/?mp3=11227",
-        color: ["#A56D9E", "#685CA6"],
-        id: uuidv4(),
-        active: false,
-      },
+      name: "Toofpick",
+      cover:
+        "https://chillhop.com/wp-content/uploads/2020/12/33a2a875828118a3ff260638a88362936104879a-1024x1024.jpg",
+      artist: "Directions",
+      audio: "https://mp3.chillhop.com/serve.php/?mp3=11227",
+      color: ["#A56D9E", "#685CA6"],
+      id: uuidv4(),
+    },
   ];
 }
 
