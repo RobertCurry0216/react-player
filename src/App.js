@@ -1,6 +1,11 @@
 import React, { useState, useRef } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { skipTrack, selectCurrentSong } from "./componants/musicLibrarySlice";
+import {
+  setCurrentTime,
+  setDuration,
+  setAnimationPercentage,
+} from "./componants/songInfoSlice";
 
 import "./styles/app.scss";
 
@@ -15,13 +20,6 @@ function App() {
   const dispatch = useDispatch();
 
   //states
-  const [songInfo, setSongInfo] = useState({
-    currentTime: 0,
-    duration: 0,
-    animationPercentage: 0,
-  });
-
-  //states
   const [isPlaying, setIsPlaying] = useState(false);
   const [libraryStatus, setLibraryStatus] = useState(false);
 
@@ -33,7 +31,10 @@ function App() {
     const duration = e.target.duration;
     const currentTime = e.target.currentTime;
     const percentage = Math.round((currentTime * 100) / duration);
-    setSongInfo({ ...songInfo, currentTime, duration, percentage });
+
+    dispatch(setCurrentTime(currentTime));
+    dispatch(setDuration(duration));
+    dispatch(setAnimationPercentage(percentage));
   }
 
   //componant
@@ -45,8 +46,6 @@ function App() {
         isPlaying={isPlaying}
         setIsPlaying={setIsPlaying}
         audioRef={audioRef}
-        songInfo={songInfo}
-        setSongInfo={setSongInfo}
       />
       {/* <Library
         songs={songs}

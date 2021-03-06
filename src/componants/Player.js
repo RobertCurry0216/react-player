@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { skipTrack, selectCurrentSong } from "./musicLibrarySlice";
+import { setCurrentTime } from "./songInfoSlice";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -13,9 +14,10 @@ import {
 
 import { playAudio } from "../util";
 
-function Player({ isPlaying, setIsPlaying, audioRef, songInfo, setSongInfo }) {
+function Player({ isPlaying, setIsPlaying, audioRef }) {
   //redux
   const currentSong = useSelector(selectCurrentSong);
+  const songInfo = useSelector((state) => state.songInfo);
   const dispatch = useDispatch();
 
   //effects
@@ -41,7 +43,7 @@ function Player({ isPlaying, setIsPlaying, audioRef, songInfo, setSongInfo }) {
   }
 
   function dragHandler(e) {
-    setSongInfo({ ...songInfo, currentTime: e.target.value });
+    dispatch(setCurrentTime(e.target.value));
     audioRef.current.currentTime = e.target.value;
   }
 
@@ -51,7 +53,7 @@ function Player({ isPlaying, setIsPlaying, audioRef, songInfo, setSongInfo }) {
   };
 
   const trackAnim = {
-    transform: `translateX(${songInfo.percentage}%)`,
+    transform: `translateX(${songInfo.animationPercentage}%)`,
   };
 
   //componant
